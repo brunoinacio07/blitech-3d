@@ -1,10 +1,29 @@
 import { OrthographicCamera } from "@react-three/drei"
 import useSpline from "@splinetool/r3f-spline"
+import { useEffect, useState } from "react"
 
 export default function Scene({ ...props }) {
   const { nodes, materials } = useSpline(
     "https://prod.spline.design/AdaFccZLflXnvmm5/scene.splinecode"
   )
+  const [zoom, setZoom] = useState(0.9)
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 600) {
+        setZoom(0.5)
+      } else {
+        setZoom(0.9)
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+
+    handleResize()
+
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
   return (
     <>
       <color attach="background" args={["#e7e7e7"]} />
@@ -34,7 +53,7 @@ export default function Scene({ ...props }) {
         <OrthographicCamera
           name="1"
           makeDefault={true}
-          zoom={0.9}
+          zoom={zoom}
           far={100000}
           near={-100000}
           position={[97.05, 285.89, 868.8]}
