@@ -2,7 +2,7 @@ import { OrthographicCamera } from "@react-three/drei"
 import useSpline from "@splinetool/r3f-spline"
 import { useEffect, useState } from "react"
 
-export default function Scene({ ...props }) {
+export function BlitechScene({ ...props }) {
   const { nodes, materials } = useSpline(
     "https://prod.spline.design/AdaFccZLflXnvmm5/scene.splinecode"
   )
