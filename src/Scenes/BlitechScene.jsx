@@ -11,9 +11,9 @@ export function BlitechScene({ ...props }) {
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth < 600) {
-        setZoom(0.5)
+        setZoom(0.6)
       } else {
-        setZoom(0.9)
+        setZoom(1.2)
       }
     }
 
@@ -34,7 +34,7 @@ export function BlitechScene({ ...props }) {
           material={materials["Text Material"]}
           castShadow
           receiveShadow
-          position={[-30.26, 264.88, -101.19]}
+          position={[-30.26, 100, -101.19]}
         />
         <directionalLight
           name="Light Main"

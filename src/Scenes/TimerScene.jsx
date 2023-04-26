@@ -8,6 +8,23 @@ export function TimerScene({ ...props }) {
   )
   const [time, setTime] = useState(0)
   const [isRunning, setIsRunnig] = useState(false)
+  const [zoom, setZoom] = useState(0.9)
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 600) {
+        setZoom(0.65)
+      } else {
+        setZoom(1.35)
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+
+    handleResize()
+
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   useEffect(() => {
     let interval
@@ -117,7 +134,7 @@ export function TimerScene({ ...props }) {
           material={materials["Text Material"]}
           castShadow
           receiveShadow
-          position={[-230, 175, 10.43]}
+          position={[-230, 150, 10.43]}
         />
         <mesh
           name="minuteLastChar "
@@ -131,7 +148,7 @@ export function TimerScene({ ...props }) {
           material={materials["Text Material"]}
           castShadow
           receiveShadow
-          position={[-100, 175, 10.43]}
+          position={[-100, 150, 10.43]}
         />
         <mesh
           name="dots"
@@ -139,7 +156,7 @@ export function TimerScene({ ...props }) {
           material={materials["Text Material"]}
           castShadow
           receiveShadow
-          position={[0, 175, 10.43]}
+          position={[0, 150, 10.43]}
         />
         <mesh
           name="secondFirstChar"
@@ -147,7 +164,7 @@ export function TimerScene({ ...props }) {
           material={materials["Text Material"]}
           castShadow
           receiveShadow
-          position={[100, 175, 10.43]}
+          position={[100, 150, 10.43]}
         />
         <mesh
           name="secondLastChar"
@@ -155,7 +172,7 @@ export function TimerScene({ ...props }) {
           material={materials["Text Material"]}
           castShadow
           receiveShadow
-          position={[230, 175, 10.43]}
+          position={[230, 150, 10.43]}
         />
         <directionalLight
           name="Light Main"
@@ -196,7 +213,7 @@ export function TimerScene({ ...props }) {
         <OrthographicCamera
           name="10"
           makeDefault={true}
-          zoom={1.36}
+          zoom={zoom}
           far={100000}
           near={-100000}
           position={[398.3, 271.47, 1002.39]}
