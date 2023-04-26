@@ -1,7 +1,7 @@
 import { Float, OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import { Suspense } from "react"
-import { TimerScener } from "../Scenes/TimerScene"
+import { TimerScene } from "../Scenes/TimerScene"
 
 export default function Test() {
   return (
@@ -22,7 +22,7 @@ export default function Test() {
           floatIntensity={1}
           floatingRange={[1, 20]}
         >
-          <TimerScener />
+          <TimerScene />
 
           <OrbitControls />
         </Float>
