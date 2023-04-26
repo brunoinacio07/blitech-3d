@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import "./index.css"
 import Home from "./pages/Home.jsx"
-import Test from "./pages/Test.jsx"
+import Timer from "./pages/Timer.jsx"
 
 const router = createBrowserRouter([
   {
@@ -11,8 +11,8 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/test",
-    element: <Test />,
+    path: "/timer",
+    element: <Timer />,
   },
 ])
 
